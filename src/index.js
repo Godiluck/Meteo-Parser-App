@@ -1,17 +1,15 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import CurrentCity from "./CurrentCity";
+
+export const CityContext = createContext({})
 
 ReactDOM.render(
-  <React.StrictMode>
+  <CityContext.Provider value={{
+      city: new CurrentCity(),
+  }}>
     <App />
-  </React.StrictMode>,
+  </CityContext.Provider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
